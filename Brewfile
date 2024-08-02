@@ -60,6 +60,7 @@ brew "dnsmasq"
 brew "caddy"
 brew "pre-commit"
 brew "gh"
+brew "yt-dlp"
 
 
 # lib*
@@ -93,6 +94,7 @@ cask "font-meslo-lg-nerd-font"
 cask "iterm2"
 cask "gimp"
 cask "itsycal"
+cask "vlc"
 
 # mas "1password7", id: 1333542190
 mas "Evernote", id: 406056744
