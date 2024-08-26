@@ -19,15 +19,16 @@
     color: #0091EB;
 }
 
-/* 
-.md-tabs__link {
-    color: red;
+[dir=ltr] .md-header__title {
+    margin-left: .4rem;
 }
 
-.md-tabs__link:hover {
-    color: green;
+.md-header__topic {
+    font-size: 1.3em;
 }
 
-.md-tabs__link:focus {
-    color: blue;
+/*
+    font-weight: 200;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    letter-spacing: 0.05em;
 } */

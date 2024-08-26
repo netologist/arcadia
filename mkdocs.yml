@@ -1,4 +1,4 @@
-site_name: Arcadia Workspace
+site_name: arcadia workspace
 site_url: https://netologist.github.io/arcadia/
 site_author: Hasan Ozgan
 
@@ -19,7 +19,7 @@ theme:
   name: material
   icon:
     repo: fontawesome/brands/github
-    logo: material/artstation
+    logo: material/monitor-cellphone-star
     edit: material/pencil
     view: material/eye
   palette:
