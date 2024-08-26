@@ -1,0 +1,34 @@
+.md-tabs {
+    background-color: #fdf9f2;
+}
+
+.md-tabs__link {
+    color: black;
+}
+
+.md-tabs__item--active {
+    color: #EF5552;
+}
+
+
+.md-tabs__link:focus {
+    color: blue;
+}
+
+.md-tabs__link:hover {
+    color: #0091EB;
+}
+
+[dir=ltr] .md-header__title {
+    margin-left: .4rem;
+}
+
+.md-header__topic {
+    font-size: 1.3em;
+}
+
+/*
+    font-weight: 200;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    letter-spacing: 0.05em;
+} */
