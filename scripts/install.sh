@@ -39,7 +39,7 @@ fi
 
 sudo mkdir -p ${ARCADIA_HOME}/projects
 sudo chown -R $(whoami) ${ARCADIA_HOME}
-git clone git@github.com:netologist/arcadia.git ${ARCADIA_HOME}/home
+git clone https://github.com/netologist/arcadia.git ${ARCADIA_HOME}/home
 
 # Install || Update Core Utils
 echo "Info   | Install   | Core utils"
