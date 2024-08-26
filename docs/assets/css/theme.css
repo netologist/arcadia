@@ -1,0 +1,33 @@
+.md-tabs {
+    background-color: #fdf9f2;
+}
+
+.md-tabs__link {
+    color: black;
+}
+
+.md-tabs__item--active {
+    color: #EF5552;
+}
+
+
+.md-tabs__link:focus {
+    color: blue;
+}
+
+.md-tabs__link:hover {
+    color: #0091EB;
+}
+
+/* 
+.md-tabs__link {
+    color: red;
+}
+
+.md-tabs__link:hover {
+    color: green;
+}
+
+.md-tabs__link:focus {
+    color: blue;
+} */

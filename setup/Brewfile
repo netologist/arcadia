@@ -1,0 +1,188 @@
+# 'brew tap'
+tap "homebrew/bundle"
+tap "hashicorp/tap"
+tap "homebrew/services"
+tap "sdkman/tap"
+
+# core
+brew "vim", tags: "dev editor"
+brew "git", tags: "dev"
+brew "zsh", tags: "shell"
+brew "tmux", tags: "shell"
+brew "starship", tags: "shell"
+brew "make", tags: "dev build"
+brew "gcc", tags: "dev build"
+brew "coreutils", tags: "shell build"
+brew "gnu-sed", tags: "shell"
+brew "automake", tags: "dev build"
+brew "cmake", tags: "dev build"
+brew "pkg-config", tags: "dev build"
+brew "gettext", tags: "dev shell"
+
+# ai
+brew "ollama"
+
+# neovim & dependencies
+brew "ack", tags: "shell neovim"
+brew "fd", tags: "shell neovim"
+brew "fzf", tags: "shell neovim"
+brew "neovim", tags: "dev editor neovim"
+brew "ripgrep", tags: "shell neovim"
+brew "universal-ctags", tags: "dev editor neovim"
+
+# python & env
+brew "python3", tags: "dev python"
+brew "autoenv", tags: "dev python"
+brew "pyenv", tags: "dev python"
+brew "pipx", tags: "dev python"
+brew "jinja2-cli", tags: "dev python"
+brew "poetry", tags: "dev python"
+
+# go
+brew "go", tags: "dev golang"
+brew "gox", tags: "dev golang"
+brew "goenv", tags: "dev golang"
+brew "golangci-lint", tags: "dev golang"
+
+# rust
+brew "rust", tags: "dev rust"
+brew "rustup", tags: "dev rust"
+brew "rust-analyzer", tags: "dev rust"
+brew "rustfmt", tags: "dev rust"
+
+# java
+brew "sdkman-cli", tags: "dev java"
+
+# node
+brew "node", tags: "dev node"
+brew "nvm", tags: "dev node"
+brew "yarn", tags: "dev node"
+brew "npm", tags: "dev node"
+
+# lua
+brew "lua", tags: "dev lua"
+brew "luajit", tags: "dev lua" # Just-In-Time Compiler (JIT) for the Lua programming language
+brew "luarocks", tags: "dev lua" # Package manager for the Lua programming language
+
+# shellscript
+brew "shellcheck", tags: "dev shell" # Static analysis and lint tool, for (ba)sh scripts
+
+# modern cli
+brew "bat", tags: "shell tools"
+brew "tig", tags: "shell tools"
+brew "htop", tags: "shell tools"
+brew "k9s", tags: "shell tools"
+brew "httpie", tags: "shell tools"
+brew "ijq", tags: "shell tools"
+brew "jq", tags: "shell tools"
+# brew "exa", tags: "shell tools"
+brew "dust", tags: "shell tools"
+brew "duf", tags: "shell tools"
+brew "lsd", tags: "shell tools"
+brew "fx", tags: "shell tools"
+brew "yq", tags: "shell tools"
+brew "yamllint", tags: "shell tools"
+brew "yh", tags: "shell tools"
+brew "tree", tags: "shell tools"
+brew "wget", tags: "shell tools"
+brew "tldr", tags: "shell tools"
+brew "mkcert", tags: "shell tools"
+brew "dnsmasq", tags: "shell tools"
+brew "caddy", tags: "shell tools"
+brew "pre-commit", tags: "shell tools"
+brew "gh", tags: "shell tools"
+brew "yt-dlp", tags: "shell tools"
+brew "graphviz", tags: "shell tools" # need the dotview for plantuml
+brew "xh", tags: "shell tools" # http request tool
+brew "bind", tags: "shell tools" # dig
+# brew "dog" # dig alternative
+brew "gping", tags: "shell tools"
+brew "curlie", tags: "shell tools"
+brew "scc", tags: "shell tools" # Sloc, Cloc and Code. Count lines of code in a directory with complexity estimation.
+# brew "github-cli"
+brew "awscli", tags: "shell tools"
+brew "aws-vault", tags: "shell tools"
+brew "mc", tags: "shell tools" # midnight command
+brew "unzip", tags: "shell tools"
+brew "zip", tags: "shell tools"
+brew "telnet", tags: "network shell"
+brew "watch", tags: "shell tools"
+
+# lib*
+brew "libevent", tags: "library lib"
+brew "libtool", tags: "library lib"
+brew "libfaketime", tags: "library lib"
+brew "libmagic", tags: "library lib"
+brew "libuv", tags: "library lib"
+brew "libxml2", tags: "library lib"
+brew "libxslt", tags: "library lib"
+brew "libyaml", tags: "library lib"
+brew "libpq", tags: "library lib" # for psql client
+
+# containers
+brew "lima", tags: "vm tools"
+brew "colima", tags: "container docker"
+brew "docker", tags: "container docker"
+brew "docker-compose", tags: "container docker"
+
+# kubernetes
+brew "helm", tags: "container k8s"
+brew "kubernetes-cli", tags: "container k8s"
+brew "kustomize", tags: "container k8s"
+brew "kubectx", tags: "container k8s"
+brew "kube-ps1", tags: "container k8s"
+
+# fonts
+cask "font-fira-code", tags: "font"
+cask "font-hack-nerd-font", tags: "font"
+cask "font-menlo-for-powerline", tags: "font"
+cask "font-meslo-lg-nerd-font", tags: "font"
+cask "font-jetbrains-mono", tags: "font"
+
+# tools
+cask "alacritty", tags: "shell"
+cask "visual-studio-code", tags: "vscode"
+cask "iterm2", tags: "shell"
+cask "gimp", tags: "osx tools"
+cask "itsycal", tags: "osx tools"
+cask "vlc", tags: "osx tools"
+cask "keepassxc", tags: "osx tools"
+cask "dbeaver-community", tags: "osx tools"
+cask "the-unarchiver", tags: "osx tools"
+cask "iina", tags: "osx tools"
+cask "grandperspective", tags: "osx tools"
+
+# mas "1password7", id: 1333542190, tags: "osx tools"
+mas "Todoist", id: 585829637, tags: "osx tools"
+mas "Evernote", id: 406056744, tags: "osx tools"
+mas "BetterSnapTool", id: 417375580, tags: "osx tools"
+mas "CopyLink", id: 595191960, tags: "osx tools"
+mas "Keynote", id: 409183694, tags: "osx tools"
+mas "Numbers", id: 409203825, tags: "osx tools"
+mas "Pages", id: 409201541, tags: "osx tools"
+mas "Focus To-Do", id: 1258530160, tags: "osx tools"
+mas "Owly", id: 882812218, tags: "osx tools"
+mas "Copy Clipboard History", id: 595191960, tags: "osx tools"
+mas "FE File Explorer", id: 1444382558, tags: "osx tools"
+
+# vscode extensions
+vscode "rust-lang.rust-analyzer", tags: "vscode extension"
+vscode "redhat.vscode-yaml", tags: "vscode extension"
+vscode "EditorConfig.EditorConfig", tags: "vscode extension"
+vscode "ms-kubernetes-tools.vscode-kubernetes-tools", tags: "vscode extension"
+vscode "ms-python.debugpy", tags: "vscode extension"
+vscode "ms-python.python", tags: "vscode extension"
+vscode "ms-python.isort", tags: "vscode extension"
+vscode "ms-python.vscode-pylance", tags: "vscode extension"
+vscode "ms-vscode-remote.remote-containers", tags: "vscode extension"
+vscode "ms-vscode-remote.remote-ssh", tags: "vscode extension"
+vscode "ms-vscode-remote.remote-ssh-edit", tags: "vscode extension"
+vscode "eamodio.gitlens", tags: "vscode extension"
+vscode "k--kato.intellij-idea-keybindings", tags: "vscode extension"
+vscode "hasanozgan.darkknight", tags: "vscode extension"
+vscode "golang.go", tags: "vscode extension"
+vscode "github.github-vscode-theme", tags: "vscode extension"
+vscode "github.vscode-github-actions", tags: "vscode extension"
+vscode "GitHub.copilot", tags: "vscode extension"
+vscode "thenikso.github-plus-theme", tags: "vscode extension"
+vscode "rangav.vscode-thunder-client", tags: "vscode extension"

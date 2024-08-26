@@ -1,0 +1,135 @@
+# This example requires Lima v0.7.0 or later
+images:
+# Try to use yyyyMMdd.REV image if available. Note that yyyyMMdd.REV will be removed after several months.
+- location: "https://mirror.pkgbuild.com/images/v20220515.56564/Arch-Linux-x86_64-cloudimg-20220515.56564.qcow2"
+  arch: "x86_64"
+  digest: "sha256:e7ef924f6c56642e2c3a4be7c74fad4c38a8113c8d527a835b2f51dcb1977394"
+- location: "https://github.com/mcginty/arch-boxes/releases/download/v20220323/Arch-Linux-aarch64-cloudimg-20220323.0.qcow2"
+  arch: "aarch64"
+  digest: "sha512:27524910bf41cb9b3223c8749c6e67fd2f2fdb8b70d40648708e64d6b03c0b4a01b3c5e72d51fefd3e0c3f58487dbb400a79ca378cde2da341a3a19873612be8"
+# Fallback to the latest release image.
+# Hint: run `limactl prune` to invalidate the cache
+- location: "https://mirror.pkgbuild.com/images/latest/Arch-Linux-x86_64-cloudimg.qcow2"
+  arch: "x86_64"
+
+mounts:
+- location: "~"
+- location: "/tmp/lima"
+  writable: true
+- location: "/opt/studio"
+  writable: true
+firmware:
+  legacyBIOS: true
+
+provision:
+- mode: system
+  script: |
+    #!/bin/sh  
+    # nix
+    # sh <(curl -L https://nixos.org/nix/install) --daemon
+
+    # cli tools
+    pacman -Syu --noconfirm zsh
+    pacman -Syu --noconfirm vim
+    pacman -Syu --noconfirm tmux
+    pacman -Syu --noconfirm git
+    pacman -Syu --noconfirm docker
+    pacman -Syu --noconfirm docker-compose
+    pacman -Syu --noconfirm jq
+    pacman -Syu --noconfirm net-tools
+    pacman -Syu --noconfirm htop
+    pacman -Syu --noconfirm bat
+    pacman -Syu --noconfirm tig
+    pacman -Syu --noconfirm httpie
+    pacman -Syu --noconfirm exa
+    pacman -Syu --noconfirm lsd
+    pacman -Syu --noconfirm dust
+    pacman -Syu --noconfirm duf
+    pacman -Syu --noconfirm fd
+    pacman -Syu --noconfirm ripgrep
+    pacman -Syu --noconfirm fzf
+    pacman -Syu --noconfirm tldr
+    pacman -Syu --noconfirm hyperfine
+    pacman -Syu --noconfirm procs
+    pacman -Syu --noconfirm gping
+    pacman -Syu --noconfirm curlie 
+    pacman -Syu --noconfirm xh # http request tool
+    pacman -Syu --noconfirm dog # dig alternative
+    pacman -Syu --noconfirm mc # midnight commander
+    pacman -Syu --noconfirm base-devel # base devel tools
+    pacman -Syu --noconfirm stress # cpu and io stress tool
+    pacman -Syu --noconfirm github-cli
+    pacman -Syu --noconfirm aws-vault
+    pacman -Syu --noconfirm pgcli
+    pacman -Syu --noconfirm unzip
+    pacman -Syu --noconfirm zip
+
+    # languages
+    pacman -Syu --noconfirm go
+    pacman -Syu --noconfirm nodejs
+    pacman -Syu --noconfirm python
+    pacman -Syu --noconfirm rustup
+    pacman -Syu --noconfirm sdkman
+  
+    # kubernetes
+    pacman -Syu --noconfirm kubectl
+    pacman -Syu --noconfirm kubectx
+    pacman -Syu --noconfirm stern
+    pacman -Syu --noconfirm k9s
+    pacman -Syu --noconfirm kustomize
+    
+
+    # sdkman
+    curl -s "https://get.sdkman.io" | bash    
+    
+    # oh-my-zsh
+    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+    timedatectl set-timezone Europe/London
+
+    # chsh -s $(which zsh)
+
+    systemctl start docker.service
+    systemctl enable docker.service
+    # usermod -aG docker $USER
+
+# - mode: system
+#   script: |
+#     #!/bin/bash
+#     echo "$USER OK"
+
+- mode: user
+  script: |
+    #!/bin/bash
+    sudo chsh -s $(which zsh)
+    sudo usermod -aG docker $USER
+
+# probes:
+# - script: |
+#     #!/bin/bash
+#     set -eux -o pipefail
+#     if ! timeout 30s bash -c "until command -v docker >/dev/null 2>&1; do sleep 3; done"; then
+#       echo >&2 "docker is not installed yet"
+#       exit 1
+#     fi
+#     if ! timeout 30s bash -c "until pgrep rootlesskit; do sleep 3; done"; then
+#       echo >&2 "rootlesskit (used by rootless docker) is not running"
+#       exit 1
+#     fi
+#   hint: See "/var/log/cloud-init-output.log". in the guest
+# hostResolver:
+#   # hostResolver.hosts requires lima 0.8.3 or later. Names defined here will also
+#   # resolve inside containers, and not just inside the VM itself.
+#   hosts:
+#     host.docker.internal: host.lima.internal
+# portForwards:
+# - guestSocket: "/run/user/{{.UID}}/docker.sock"
+#   hostSocket: "{{.Dir}}/sock/docker.sock"
+# message: |
+#   To run `docker` on the host (assumes docker-cli is installed), run the following commands:
+#   ------
+#   docker context create lima --docker "host=unix://{{.Dir}}/sock/docker.sock"
+#   docker context use lima
+#   docker run hello-world
+#   ------
+
