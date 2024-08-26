@@ -1,4 +1,4 @@
-# Arcadia - In Progress
+# Arcadia - [ in-progress ]
 
 The 'arcadia' is my macbook workspace.
 
