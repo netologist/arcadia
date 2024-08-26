@@ -8,7 +8,7 @@ edit_uri: edit/main/docs
 
 nav:
   - Home: "index.md"
-  - Installation: "setup/index.md"
+  - Installation: "install/index.md"
   - Tools: "tools/index.md"
   - Project Setup: "project/index.md"
 
@@ -39,8 +39,8 @@ theme:
       primary: red
       accent: light blue
       toggle:
-        icon: material/brightness-auto
-        name: Light Mode
+        icon: material/weather-sunny
+        name: System Preference
   features:
     - navigation.tabs
     - content.action.edit

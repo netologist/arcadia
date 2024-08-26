@@ -5,22 +5,21 @@ tap "homebrew/services"
 tap "sdkman/tap"
 
 # core
-brew "vim", tags: "dev editor"
-brew "git", tags: "dev"
-brew "zsh", tags: "shell"
-brew "tmux", tags: "shell"
-brew "starship", tags: "shell"
-brew "make", tags: "dev build"
-brew "gcc", tags: "dev build"
-brew "coreutils", tags: "shell build"
-brew "gnu-sed", tags: "shell"
-brew "automake", tags: "dev build"
-brew "cmake", tags: "dev build"
-brew "pkg-config", tags: "dev build"
-brew "gettext", tags: "dev shell"
+brew "vim", tags: "core dev editor"
+brew "git", tags: "core dev"
+brew "zsh", tags: "core shell"
+brew "tmux", tags: "core shell"
+brew "starship", tags: "core shell"
+brew "make", tags: "core dev build"
+brew "gcc", tags: "core dev build"
+brew "coreutils", tags: "core shell build"
+brew "jq", tags: "core shell"
+brew "yq", tags: "core shell"
+brew "fzf", tags: "core shell"
+brew "ansible", tags: "core shell"
 
 # ai
-brew "ollama"
+brew "ollama", tags: "ai llm"
 
 # neovim & dependencies
 brew "ack", tags: "shell neovim"
@@ -31,7 +30,7 @@ brew "ripgrep", tags: "shell neovim"
 brew "universal-ctags", tags: "dev editor neovim"
 
 # python & env
-brew "python3", tags: "dev python"
+brew "python3", tags: "dev language:python"
 brew "autoenv", tags: "dev python"
 brew "pyenv", tags: "dev python"
 brew "pipx", tags: "dev python"
@@ -39,28 +38,28 @@ brew "jinja2-cli", tags: "dev python"
 brew "poetry", tags: "dev python"
 
 # go
-brew "go", tags: "dev golang"
+brew "go", tags: "dev language:golang"
 brew "gox", tags: "dev golang"
 brew "goenv", tags: "dev golang"
 brew "golangci-lint", tags: "dev golang"
 
 # rust
-brew "rust", tags: "dev rust"
+brew "rust", tags: "dev language:rust"
 brew "rustup", tags: "dev rust"
 brew "rust-analyzer", tags: "dev rust"
 brew "rustfmt", tags: "dev rust"
 
 # java
-brew "sdkman-cli", tags: "dev java"
+brew "sdkman-cli", tags: "dev language:java"
 
 # node
-brew "node", tags: "dev node"
+brew "node", tags: "dev language:node"
 brew "nvm", tags: "dev node"
 brew "yarn", tags: "dev node"
 brew "npm", tags: "dev node"
 
 # lua
-brew "lua", tags: "dev lua"
+brew "lua", tags: "dev language:lua"
 brew "luajit", tags: "dev lua" # Just-In-Time Compiler (JIT) for the Lua programming language
 brew "luarocks", tags: "dev lua" # Package manager for the Lua programming language
 
@@ -74,13 +73,11 @@ brew "htop", tags: "shell tools"
 brew "k9s", tags: "shell tools"
 brew "httpie", tags: "shell tools"
 brew "ijq", tags: "shell tools"
-brew "jq", tags: "shell tools"
 # brew "exa", tags: "shell tools"
 brew "dust", tags: "shell tools"
 brew "duf", tags: "shell tools"
 brew "lsd", tags: "shell tools"
 brew "fx", tags: "shell tools"
-brew "yq", tags: "shell tools"
 brew "yamllint", tags: "shell tools"
 brew "yh", tags: "shell tools"
 brew "tree", tags: "shell tools"
@@ -107,6 +104,11 @@ brew "unzip", tags: "shell tools"
 brew "zip", tags: "shell tools"
 brew "telnet", tags: "network shell"
 brew "watch", tags: "shell tools"
+brew "gnu-sed", tags: "shell"
+brew "automake", tags: "dev build"
+brew "cmake", tags: "dev build"
+brew "pkg-config", tags: "dev build"
+brew "gettext", tags: "dev shell"
 
 # lib*
 brew "libevent", tags: "library lib"
@@ -136,13 +138,13 @@ brew "kube-ps1", tags: "container k8s"
 cask "font-fira-code", tags: "font"
 cask "font-hack-nerd-font", tags: "font"
 cask "font-menlo-for-powerline", tags: "font"
-cask "font-meslo-lg-nerd-font", tags: "font"
+cask "font-meslo-lg-nerd-font", tags: "core font"
 cask "font-jetbrains-mono", tags: "font"
 
 # tools
 cask "alacritty", tags: "shell"
-cask "visual-studio-code", tags: "vscode"
-cask "iterm2", tags: "shell"
+cask "visual-studio-code", tags: "core vscode"
+cask "iterm2", tags: "core shell"
 cask "gimp", tags: "osx tools"
 cask "itsycal", tags: "osx tools"
 cask "vlc", tags: "osx tools"
