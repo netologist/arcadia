@@ -2,10 +2,13 @@
 set -e
 
 scripts_dir="$(dirname -- "$(readlink -f ${BASH_SOURCE[0]})")"
-brewfile_path=$scripts_dir/../configuration/homebrew/Brewfile
+ARCADIA_HOME=/opt/arcadia
+# GITHUB_REPO_LOCATION=/tmp/arcadia-setup/$(date '+%Y%m%d%H%M%S')
+GITHUB_REPO=git@github.com:netologist/arcadia.git
+BREWFILE=$GITHUB_REPO_LOCATION/scripts/configuration/homebrew/Brewfile
 
 make_brewfile() {
-  grep "tags:\s*['\"]\S.*\S.*['\"]" $brewfile_path | grep $1
+  grep "tags:\s*['\"]\S.*\S.*['\"]" $BREWFILE | grep $1
 }
 
 if ! command -v gcc &> /dev/null
@@ -25,10 +28,23 @@ else
     echo "✅ Homebrew already installed"
 fi
 
+if ! command -v git &> /dev/null
+then
+    echo "Info   | Install   | Git"
+    brew update
+    brew install git
+else
+    echo "✅ Git already installed"
+fi
+
+git clone $GITHUB_REPO $ARCADIA_HOME
+
 # Install || Update Core Utils
 echo "Info   | Install   | Core utils"
 brew update
 brew bundle --file <(make_brewfile "core") 2> /dev/null
+
+rm -rf /tmp/arcadia
 
 # echo "eval \"\$(starship init zsh)\"\n" >> $HOME/.zshrc
 
