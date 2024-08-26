@@ -37,7 +37,9 @@ else
     echo "✅ Git already installed"
 fi
 
-git clone $GITHUB_REPO $ARCADIA_HOME
+sudo git clone $GITHUB_REPO $ARCADIA_HOME
+sudo chown -R $(whoami) ${ARCADIA_HOME}
+
 
 # Install || Update Core Utils
 echo "Info   | Install   | Core utils"
