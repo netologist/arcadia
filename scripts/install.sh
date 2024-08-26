@@ -2,11 +2,13 @@
 set -e
 
 scripts_dir="$(dirname -- "$(readlink -f ${BASH_SOURCE[0]})")"
-ARCADIA_HOME=/opt/arcadia
-# GITHUB_REPO_LOCATION=/tmp/arcadia-setup/$(date '+%Y%m%d%H%M%S')
+echo $scripts_dir
+echo "========"
+ARCADIA_DIR=/opt/arcadia
+ARCADIA_HOME=$ARCADIA_DIR/home
 GITHUB_REPO=git@github.com:netologist/arcadia.git
-BREWFILE=$GITHUB_REPO_LOCATION/scripts/configuration/homebrew/Brewfile
-
+BREWFILE=${ARCADIA_HOME}/configuration/homebrew/Brewfile
+echo $BREWFILE
 make_brewfile() {
   grep "tags:\s*['\"]\S.*\S.*['\"]" $BREWFILE | grep $1
 }
@@ -37,9 +39,9 @@ else
     echo "✅ Git already installed"
 fi
 
-sudo mkdir -p ${ARCADIA_HOME}/projects
-sudo chown -R $(whoami) ${ARCADIA_HOME}
-git clone https://github.com/netologist/arcadia.git ${ARCADIA_HOME}/home
+sudo mkdir -p ${ARCADIA_DIR}/projects
+sudo chown -R $(whoami) ${ARCADIA_DIR}
+git clone https://github.com/netologist/arcadia.git ${ARCADIA_HOME}
 
 # Install || Update Core Utils
 echo "Info   | Install   | Core utils"
