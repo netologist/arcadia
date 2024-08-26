@@ -1,3 +1,3 @@
 # Arcadia
 
-Arcadia is my macbook workspace.
+The 'arcadia' is my macbook workspace.
